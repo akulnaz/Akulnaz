@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Quiz 💘</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .question {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ff2e55;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 40px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>💘 Valentine Quiz 💘</h1>
+
+  <div class="card">
+
+    <!-- Q1 -->
+    <div id="q1">
+      <div class="question">When did we first meet? 💭</div>
+
+      <button onclick="wrong()">12 October</button>
+      <button onclick="wrong()">4th June</button>
+      <button onclick="wrong()">9th December</button>
+      <button onclick="next(2)">19 January ✅</button>
+    </div>
+
+    <!-- Q2 -->
+    <div id="q2" class="hidden">
+      <div class="question">What's my dream travel destination? ✈️</div>
+
+      <button onclick="next(3)">Japan ✅</button>
+      <button onclick="wrong()">New York</button>
+      <button onclick="wrong()">Paris</button>
+      <button onclick="wrong()">Dehradun</button>
+    </div>
+
+    <!-- Q3 -->
+    <div id="q3" class="hidden">
+      <div class="question">What's your favourite thing? 😏</div>
+
+      <button onclick="next(4)">Shikha ❤️</button>
+      <button onclick="wrong()">Oranges</button>
+      <button onclick="wrong()">Dumbells</button>
+      <button onclick="wrong()">Banana</button>
+    </div>
+
+    <!-- Q4 -->
+    <div id="q4" class="hidden">
+      <div class="question">Will you be my Valentine? 💝</div>
+
+      <button onclick="nope()">No ❌</button>
+      <button onclick="final()">Yes 💘</button>
+    </div>
+
+    <!-- Result -->
+    <div id="final" class="hidden">
+      <h2>YAYYY 😭💖</h2>
+
+      <p>
+        System Message 📢<br><br>
+        Pick me up at <b>11 AM</b> on <b>14th Feb</b> 💐<br>
+        Bring flowers 🌸 and something cute 🧸<br><br>
+        Can't wait 🥰
+      </p>
+
+    </div>
+
+    <div id="result"></div>
+
+  </div>
+
+  <script>
+
+    function wrong() {
+      document.getElementById("result").innerText =
+        "Wrong answer 😭 Try again baby 💗";
+    }
+
+    function next(n) {
+      document.getElementById("result").innerText = "";
+
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById("q" + i).classList.add("hidden");
+      }
+
+      document.getElementById("q" + n).classList.remove("hidden");
+    }
+
+    function nope() {
+      alert("❌ Invalid Choice!\nSystem detected you're already my Valentine 😌💘");
+    }
+
+    function final() {
+      document.getElementById("q4").classList.add("hidden");
+      document.getElementById("final").classList.remove("hidden");
+    }
+
+  </script>
+
+</body>
+</html>
